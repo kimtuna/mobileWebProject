@@ -58,4 +58,22 @@ class SocketServer:
                                 img_file.write(image_data)
 
                 # 응답 전송
-                response = b"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nRequest receive
+                response = b"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nRequest received."
+                cInt_sock.sendall(response)
+                cInt_sock.close()
+        except KeyboardInterrupt:
+            print("\r\n Stop the server ...")
+        finally:
+            self.sock.close()
+
+    def get_filename(self, disposition):
+        """파일 이름 추출"""
+        if b'filename="' in disposition:
+            start = disposition.index(b'filename="') + len(b'filename="')
+            end = disposition.index(b'"', start)
+            return disposition[start:end].decode('utf-8')
+        return None
+
+if __name__ == "__main__":
+    server = SocketServer()
+    server.run("127.0.0.1", 8000)
