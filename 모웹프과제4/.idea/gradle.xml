@@ -8,8 +8,8 @@
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../모웹프과제/helloworld" />
-            <option value="$PROJECT_DIR$/../../모웹프과제/helloworld/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
